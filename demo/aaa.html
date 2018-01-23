@@ -1,0 +1,25 @@
+<script type="text/javascript">
+	function interval(func, wait) {
+        var interv = function() {
+            func.call(null);
+            setTimeout(interv, wait);
+        };
+        setTimeout(interv, wait);
+    }
+displaytgtinfo
+
+    interval(function() {
+        console.log(2);
+    }, 1000);
+
+ function freshinfo(fnc,wait)
+ {
+ 	var interv = function()
+ 	{
+ 		fnc.call(null);
+ 		setTimeout(interv,wait);
+ 	}
+ 	setTimeout(interv,wait);
+ }
+</script>
+

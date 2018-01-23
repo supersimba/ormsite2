@@ -1,0 +1,134 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: rgb(228,229,230);
+	font-family:"微软雅黑","黑体","宋体";
+}
+
+.wrapper {
+	position: relative;
+}
+
+
+/*header*/
+
+
+.header {
+	border-bottom: 1px solid rgb(207, 216, 220);
+	background: white;
+	z-index: 5000;
+}
+
+.header .ul-header-menu{
+	margin-right: 15px;
+	color: rgb(83,108,121);
+	/*font-size: 20px;*/
+}
+
+@media (max-width: 768px) {
+	.ul-header-menu{
+		display: none;
+	}	
+}
+
+
+/*end header*/
+
+/*侧边菜单*/
+.div-sider-menu{
+	margin-top: 0px;
+	padding: 0px;
+	width: 200px;
+	padding-top: 51px;
+	height: 100%;
+	background: rgb(41,54,61);
+	position: fixed;
+	z-index: 2000;
+	font-size: 13px;
+	border: 0;
+	overflow-y: auto;
+}
+
+/*a:link {color: #FF0000}		/* 未访问的链接 */
+/*a:visited {color: #00FF00}	/* 已访问的链接 */
+/*a:hover {color: #FF00FF}	/* 鼠标移动到链接上*/ 
+/*a:active {color: #0000FF}	/* 选定的链接 */
+
+.div-sider-menu ul{
+	color: white;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*.ul-sider-menu{
+	color: white;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}*/
+.ul-sider-menu li{
+	width: 200px;
+	/*height: 30px;*/
+	/*padding-left: 50px;*/
+}
+.ul-sider-menu a{
+	display: block;
+	height: 40px;
+	width: 200px;
+	margin-bottom: 5px;
+	padding-left: 50px;
+	line-height: 40px;
+	position: relative;
+	overflow-x: visible;
+	font-size: 13px;
+}
+.ul-sider-menu a:link{
+	color: white;
+}
+.ul-sider-menu a:visited{
+	color: white;
+}
+.ul-sider-menu a:hover{
+	color: white;
+	text-decoration: none;
+	background: rgb(32,168,216);
+}
+.ul-sider-menu a:active{
+	color: white;
+}
+
+#ul-sub-jk-list,#ul-sub-jk-gl{
+	display: none;
+}
+
+#fa-jk-gl-down,#fa-jk-list-down{
+	display: none;
+}
+/*end侧边菜单*/
+
+
+
+/*主内容区域*/
+.content-body{
+	background: rgb(228,229,230);
+	margin-left: 200px;
+	position: relative;
+	top: 51px;
+}
+.col-path-url{
+	padding: 0px;
+}
+.path-url{
+	background: rgb(255,255,255);
+	border-radius: 0px;
+	border-bottom: 1px solid rgb(194,207,214);
+}
+.footer{
+	border-bottom: 1px solid rgb(194,207,214);
+	border-top: 1px solid rgb(194,207,214);
+	background: rgb(240,243,245);
+	height: 35px;
+	line-height: 35px;
+}
+/*end主内容区域*/

@@ -1,0 +1,109 @@
+{% extends "ormapp/ormsite-base.html" %} {% block orminfo-css %}
+<link rel="stylesheet" href="/static/css/orminfo.css"> {% endblock %} {% block orminfo-js %}
+<script type="text/javascript" src="/static/js/table-info.js"></script>
+{% endblock %} 
+{% block orminfo-get-info %}
+<script type="text/javascript" src="/static/js/getsrcinfo.js"></script>
+<script type="text/javascript" src="/static/js/gettgtinfo.js"></script>
+{% endblock %}
+{% block url-path %}
+<li>
+  <a href="#">首页</a>
+</li>
+<li class="active">
+  {# <a href="/orminfo/"></a> #}状态列表-DSG
+</li>
+{% endblock %} 
+{% block content %}
+<table class="table table-bordered table-info">
+  <thead>
+    <td></td>
+    <td>同步描述</td>
+    <td>源端</td>
+    <td>S状态</td>
+    <td>S动作</td>
+    <td>S端时间</td>
+    <td>备端IP</td>
+    <td>T状态</td>
+    <td>T动作</td>
+    <td>T端时间</td>
+    <td></td>
+  </thead>
+  <tbody id="table-info-tbody">
+  {% for l in dblist %}
+  <tr>
+      <td style="text-align: center;">
+        <a class="link-table-collape">
+          <i class="fa fa-plus-square-o"></i>
+        </a>
+        <span class="span-rid" style="display: none">{{ l.rid }}</span>
+        <span class="span-src-user" style="display: none">{{ l.src_ssh_user }}</span>
+        <span class="span-src-pwd" style="display: none">{{ l.src_ssh_pwd }}</span>
+        <span class="span-tgt_user" style="display: none">{{ l.tgt_ssh_user }}</span>
+        <span class="span-tgt-pwd" style="display: none">{{ l.tgt_ssh_pwd }}</span>
+      </td>
+      <td>{{ l.describe }}</td>
+      <td>{{ l.src_ip }}:{{ l.src_path }}</td>
+      <td>{# OK #}</td>
+      <td>{# 全量 #}</td>
+      <td>{# 12-18 09:23:11 #}</td>
+      <td>{{ l.tgt_ip }}:{{ l.tgt_path }}</td>
+      <td>{# OK #}</td>
+      <td>{# stop #}</td>
+      <td>{# 12-18 09:23:11 #}</td>
+      <td style="text-align: center;font-size: 15px;">
+        <a href="#"><i class="fa fa-gear" style="color: rgb(32,168,216);"></i></a>
+      </td>
+    </tr>
+    <tr class="tr-collape">
+      <td></td>
+      <td colspan="12">
+        <table class="table-subrow">
+          <tbody>
+            <tr>
+              <td></td>
+              <td colspan="7">
+                源端数据库：{{ l.src_dbid }}&nbsp;---&nbsp;目标端数据库：{{ l.tgt_dbid }}
+              </td>
+            </tr>
+            <tr class="tr-collape-src">
+              <td>S：</td>
+              <td>控制台进程数-<span id="span-dbps-num"></span></td>
+              <td>分析进程数-<span id="span-vag-num"></span></td>
+              <td>传送进程数-<span id="span-sender-num"></span></td>
+              <td>分析进程报错：<span id="span-vag-err"></span></td>
+              <td>传送进程报错：<span id="span-sender-err"></span></td>
+              <td></td>
+              <td>
+                <a href="{% url 'show_ormlogs' rid=l.rid logtype=0 %}"><i class="fa fa-file-text-o" style="font-size: 13px;">S日志</i></a>
+              </td>
+            </tr>
+            <tr class="tr-collape-tgt">
+              <td>T：</td>
+              <td>接收进程数-<span id="span-collect-num"></td>
+              <td>全量进程数-<span id="span-loader-s-profile"></span>(<span id="span-loader-s"></span>)</td>
+              <td>增量进程数-<span id="span-loader-r-profile"></span>(<span id="span-loader-r"></span>)</td>
+              <td>装载进度：<span id="span-loader-rate"></span></td>
+              <td>装载报错：<span id="span-loader-err"></span></td>
+              <td></td>
+              <td>
+                <a href="{% url 'show_ormlogs' rid=l.rid logtype=1 %}"><i class="fa fa-file-text-o" style="font-size: 13px;">T日志</i></a>
+              </td>
+            </tr>
+            <tr class="tr-collape-ldrtime">
+              <td></td>
+              <td colspan="7">装载时间：<span id="span-loader-time"></span>{# r0-20170811 11:22:11; #}</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  {% endfor %}
+
+
+    
+
+  </tbody>
+
+</table>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "ormapp/ormsite-base.html" %}
+
+{% block url-path %}
+<li>
+	<a href="#">首页</a>
+</li>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="col-md-3">
+	<div class="panel panel-default">
+  		<div class="panel-body">
+    		我的DSG&nbsp;3
+  		</div>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="panel panel-default">
+  		<div class="panel-body">
+    		我的GOLDENGATE
+  		</div>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="panel panel-default">
+  		<div class="panel-body">
+    		我的ADG
+  		</div>
+	</div>
+</div>
+<div class="col-md-3">
+	<div class="panel panel-default">
+  		<div class="panel-body">
+    		告警：dsg(0);goldengate(0);adg(0)
+  		</div>
+	</div>
+</div>
+{% endblock %}

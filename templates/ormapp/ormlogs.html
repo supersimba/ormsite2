@@ -1,0 +1,70 @@
+{% extends "ormapp/ormsite-base.html" %} {% block orminfo-css %}
+<link rel="stylesheet" href="/static/css/orminfo.css"> {% endblock %} {% block orminfo-js %}
+<script type="text/javascript" src="/static/js/table-info.js"></script>
+<script type="text/javascript" src="/static/js/ormlogs.js"></script>
+{% endblock %} 
+{% block ormlogs-css %}
+<link rel="stylesheet" href="/static/css/ormlogs.css">
+{% endblock %}
+{% block url-path %}
+<li>
+  <a href="#">首页</a>
+</li>
+<li>
+  <a href="#">状态列表-DSG</a>
+</li>
+<li class="active">
+  日志查看-DSG
+</li>
+{% endblock %} 
+{% block content %}
+{% if logtype == "0" %}
+<div class="alert alert-success" role="alert">
+  Source&nbsp;&nbsp;<span id="span-ip">{{ ip }}</span>&nbsp;&nbsp;<span id="span-path">{{ path }}</span>&nbsp;&nbsp;
+  <span id="span-sshuser" style="display:none;">{{ u }}</span><span id="span-sshpwd" style="display:none;">{{ p }}</span>
+  <button class="btn-check-pro">检查进程</button>&nbsp;
+  <button id="btn-vag-log">分析进程</button>&nbsp;
+  <button id="btn-sender-log">传送进程</button>
+</div>
+<div id="div-display-log">
+  
+</div>
+{% else %}
+<div class="alert alert-success" role="alert">
+  Target&nbsp;&nbsp;<span id="span-ip">{{ ip }}</span>&nbsp;&nbsp;<span id="span-path">{{ path }}</span>&nbsp;&nbsp;
+  <span id="span-sshuser" style="display:none;">{{ u }}</span><span id="span-sshpwd" style="display:none;">{{ p }}</span>
+  <button class="btn-check-pro">检查进程</button>&nbsp;
+  <button id="btn-vag-log">接收进程</button>&nbsp;
+  <div class="dropdown-wrapper" id="wrapper-dropdown-logs">
+    <button id="btn-ldr-s-log">全量日志</button>
+    <ul class="ul-dropdown-menu-s">
+      <li><a href="#">s0</a></li>
+      <li><a href="#">s1</a></li>
+      <li><a href="#">s2</a></li>
+      <li><a href="#">s3</a></li>
+      <li><a href="#">s4</a></li>
+      <li><a href="#">s5</a></li>
+      <li><a href="#">s6</a></li>
+      <li><a href="#">s7</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown-wrapper" id="wrapper-dropdown-logr">
+    <button id="btn-ldr-r-log">增量日志</button>
+    <ul class="ul-dropdown-menu-r">
+      <li><a href="#">r0</a></li>
+      <li><a href="#">r1</a></li>
+      <li><a href="#">r2</a></li>
+      <li><a href="#">r3</a></li>
+      <li><a href="#">r4</a></li>
+      <li><a href="#">r5</a></li>
+      <li><a href="#">r6</a></li>
+      <li><a href="#">r7</a></li>
+    </ul>
+  </div>
+</div>
+<div id="div-display-log">
+  
+</div>
+{% endif %}
+{% endblock %}
